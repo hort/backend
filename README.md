@@ -1,6 +1,6 @@
-# hort/rest
+# hort/mongorest
 
-Rest API to query MongoDB index from frontend.
+Rest API to query MongoDB index from client.
 
 ## Usage
 
@@ -23,6 +23,8 @@ npm start
 
 ```
 $ curl "http://localhost:4000?collection=index&query=\{\}"
+
+[{"_id":"5e1b56a2eb920ca66368fd74","{\"last_check\":\"1578850048\"}":""}]%
 ```
 
 ## `POST /`
@@ -31,7 +33,5 @@ $ curl "http://localhost:4000?collection=index&query=\{\}"
 
 ```
 $ curl -XPOST "http://localhost:4000?collection=index" --data '{"last_check":"1578850048"}'
-
-[{"_id":"5e1b56a2eb920ca66368fd74","{\"last_check\":\"1578850048\"}":""}]%
 ```
 

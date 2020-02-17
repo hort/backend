@@ -1,5 +1,5 @@
 {
-  "name": "rest",
+  "name": "mongorest",
   "version": "1.0.0",
   "description": "hort REST API for frontend-backend communication",
   "main": "server.js",
