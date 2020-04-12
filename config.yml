@@ -1,0 +1,33 @@
+db: 'hortdb'
+port: 4000
+
+services:
+  - name: 'hort/daemon'
+    ip: '127.0.0.1:4001'
+    component: ''
+    status: false
+    check: '/status'
+
+  - name: 'MongoREST'
+    ip: '127.0.0.1:4000'
+    component: 'MongoRest'
+    status: false
+    check: '/health'
+
+  - name: 'Grafana'
+    ip: '127.0.0.1:3000'
+    component: ''
+    status: false
+    check: '/apt/health'
+
+  - name: 'Loki'
+    ip: '127.0.0.1:3100'
+    component: ''
+    status: false
+    check: '/ready'
+
+  - name: 'Prometheus'
+    ip: '127.0.0.1:9090'
+    component: ''
+    status: false
+    check: '/ready'
