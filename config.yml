@@ -8,9 +8,9 @@ services:
     status: false
     check: '/status'
 
-  - name: 'MongoREST'
+  - name: 'hort/backend'
     ip: '127.0.0.1:4000'
-    component: 'MongoRest'
+    component: 'Backend'
     status: false
     check: '/health'
 

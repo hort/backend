@@ -1,9 +1,4 @@
-# hort/mongorest
-
-~~Rest API to query MongoDB index from client.~~
-
-One day this repository will be responsible for the interaction between the
-client and the daemon.
+# hort/backend
 
 ## Usage
 

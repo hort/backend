@@ -16,6 +16,10 @@ const config     = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
 const port       = process.env.PORT || config.port;
 const app        = express();
 
+app.use(cors())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 client.connect(url, { useUnifiedTopology: true }, function(err, db) {
   if (err) {
     console.log(err);
@@ -30,8 +34,12 @@ function find(req, res) {
     return;
   }
 
+  console.log(req);
+
   dbo.collection(req.query['collection'])
      .find(JSON.parse(req.query['query']))
+     .skip(req.query['offset'] != null ? parseInt(req.query['offset']) : 0)
+     .limit(req.query['limit'] != null ? parseInt(req.query['limit']) : 100)
      .toArray(function(err, result) {
     if (err) {
       res.send(err);
@@ -84,9 +92,5 @@ app.route('/health')
 
 app.route('/services')
   .get(services)
-
-app.use(cors())
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port);
